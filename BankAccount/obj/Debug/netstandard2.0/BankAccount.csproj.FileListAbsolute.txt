@@ -1,0 +1,8 @@
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\bin\Debug\netstandard2.0\BankAccount.deps.json
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\bin\Debug\netstandard2.0\BankAccount.dll
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\bin\Debug\netstandard2.0\BankAccount.pdb
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.0\BankAccount.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.0\BankAccount.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.0\BankAccount.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.0\BankAccount.dll
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.0\BankAccount.pdb

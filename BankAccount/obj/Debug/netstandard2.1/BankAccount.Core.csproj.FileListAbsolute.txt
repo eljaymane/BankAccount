@@ -1,0 +1,10 @@
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\bin\Debug\netstandard2.1\BankAccount.Core.deps.json
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\bin\Debug\netstandard2.1\BankAccount.Core.dll
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\bin\Debug\netstandard2.1\BankAccount.Core.pdb
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.1\BankAccount.Core.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.1\BankAccount.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.1\BankAccount.Core.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.1\BankAccount.Core.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.1\BankAccount.Core.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.1\BankAccount.Core.dll
+C:\Users\ASUS\source\repos\BankAccount\BankAccount\obj\Debug\netstandard2.1\BankAccount.Core.pdb
