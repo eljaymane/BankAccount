@@ -1,0 +1,13 @@
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\bin\Debug\netstandard2.1\BankAccount.Persistency.deps.json
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\bin\Debug\netstandard2.1\BankAccount.Persistency.dll
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\bin\Debug\netstandard2.1\BankAccount.Persistency.pdb
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\bin\Debug\netstandard2.1\BankAccount.Core.dll
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\bin\Debug\netstandard2.1\BankAccount.Core.pdb
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.csproj.CopyComplete
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.dll
+C:\Users\ASUS\source\repos\BankAccount\BankAccount.Persistency\obj\Debug\netstandard2.1\BankAccount.Persistency.pdb
