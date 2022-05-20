@@ -3,7 +3,7 @@ using BankAccount.Persistency.Adapters.Adapter;
 
 namespace BankAccount.Persistency
 {
-    public class AccountAdapter : Adapter
+    public class AccountAdapter : ObjectAdapter
     {
         public string username { get; set; }
         public string password { get; set; }

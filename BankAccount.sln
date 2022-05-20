@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Core", "BankAcc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Core.Tests", "BankAccountTests\BankAccount.Core.Tests.csproj", "{D061BB4E-5606-4A98-AC07-E0E86639CF22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.API", "BankAccount.API\BankAccount.API.csproj", "{22A830C4-5EB7-4E3D-84E8-3F73311C3FB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.API", "BankAccount.API\BankAccount.API.csproj", "{22A830C4-5EB7-4E3D-84E8-3F73311C3FB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Persistency.Tests", "BankAccount.Persistency.Tests\BankAccount.Persistency.Tests.csproj", "{3C451018-F96B-4092-86DA-961AF80623D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Persistency", "BankAccount.Persistency\BankAccount.Persistency.csproj", "{CF4F57E3-6A56-4925-A661-7B1F912A3A77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.ConsoleApp", "BankAccount.ConsoleApp\BankAccount.ConsoleApp.csproj", "{354E1344-F54F-4D5D-8039-AC4157571AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{22A830C4-5EB7-4E3D-84E8-3F73311C3FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22A830C4-5EB7-4E3D-84E8-3F73311C3FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22A830C4-5EB7-4E3D-84E8-3F73311C3FB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C451018-F96B-4092-86DA-961AF80623D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C451018-F96B-4092-86DA-961AF80623D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C451018-F96B-4092-86DA-961AF80623D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C451018-F96B-4092-86DA-961AF80623D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF4F57E3-6A56-4925-A661-7B1F912A3A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4F57E3-6A56-4925-A661-7B1F912A3A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4F57E3-6A56-4925-A661-7B1F912A3A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4F57E3-6A56-4925-A661-7B1F912A3A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{354E1344-F54F-4D5D-8039-AC4157571AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{354E1344-F54F-4D5D-8039-AC4157571AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{354E1344-F54F-4D5D-8039-AC4157571AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{354E1344-F54F-4D5D-8039-AC4157571AFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

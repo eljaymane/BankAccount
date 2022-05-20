@@ -7,17 +7,28 @@ using System.Text;
 
 namespace BankAccount.Persistency.Memory.Core
 {
-    public class MemoryPersistency<T, ID> : IPersistency<T, ID>
+    public class MemoryPersistency<T, ID> : IPersistency<T, IDictionary<ID, T>, ID>
     {
+        public event EventHandler ObjectAdded;
         private IDictionary<ID, T> objectsMap { get; set; }
         public MemoryPersistency(IDictionary<ID, T> objectsMap)
         {
             this.objectsMap = objectsMap;
+           
+        }
+
+        protected virtual void OnObjectAdded()
+        {
+            if (ObjectAdded != null)
+            {
+                ObjectAdded(this, EventArgs.Empty);
+            }
         }
   
         public virtual ID addObject(T entity, ID id)
         {
             objectsMap.Add(id, entity);
+            OnObjectAdded();
             return id;
         }
 
@@ -37,7 +48,7 @@ namespace BankAccount.Persistency.Memory.Core
             return result;
         }
 
-        public virtual IDictionary<ID, T> getObjects()
+        public virtual IDictionary<ID,T> getObjects()
         {
             return objectsMap;
         }

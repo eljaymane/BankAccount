@@ -13,6 +13,7 @@ namespace BankAccount.Core.Model.OperationsAction
     {
         private IAccountOperation accountOperations = new AccountOperation();
         private IVerifyOperation operationVerify = new VerifyOperation();
+
         public Tuple<Operation, Account> depositOperation(Account account, double amount)
         {
             var operation = new Operation { operationType = OperationType.Deposit, date = DateTime.Now, amount = amount, balance = account.balance };

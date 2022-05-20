@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BankAccount.Persistency.Adapters.Adapter
 {
-    public class ObjectAdapter : Object
+    public class ObjectAdapter 
     {
         public int id { get; set; }
+    
 
     }
 }
