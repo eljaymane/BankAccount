@@ -1,5 +1,5 @@
 ﻿using BankAccount.Core.Model.Accounts;
-using BankAccount.Persistency.Adapters.Adapter;
+using BankAccount.Persistency.Adapters;
 
 namespace BankAccount.Persistency
 {
