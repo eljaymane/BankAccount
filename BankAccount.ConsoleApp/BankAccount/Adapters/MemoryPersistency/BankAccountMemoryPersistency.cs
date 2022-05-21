@@ -1,4 +1,6 @@
-﻿using BankAccount.Persistency.Memory.Core;
+﻿using BankAccount.Persistency.Disk.Core;
+using BankAccount.Persistency.Disk.Serializers.XmlParser;
+using BankAccount.Persistency.Memory.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,12 @@ namespace BankAccount.ConsoleApp.BankAccount.Adapters.MemoryPersistency
         public BankAccountMemoryPersistency(IDictionary<int, AccountAdapter> dictionary) : base(dictionary)
         {
             
+        }
+
+        public BankAccountMemoryPersistency(IDictionary<int, AccountAdapter> dictionary, DiskPersistency<XmlParser<List<AccountAdapter>>, List<AccountAdapter>, string> diskPersistency)
+        : base(dictionary,diskPersistency)
+        {
+
         }
 
         

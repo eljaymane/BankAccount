@@ -3,13 +3,15 @@ using BankAccount.ConsoleApp.BankAccount.Exceptions;
 using BankAccount.Core.Model.Accounts;
 using BankAccount.Core.Model.Operations;
 using BankAccount.Persistency;
+using BankAccount.Persistency.Disk.Core;
+using BankAccount.Persistency.Disk.Serializers.XmlParser;
 using BankAccount.Persistency.Memory.BankAccount;
 using System.Reflection;
 using System.Runtime.Remoting;
 
 public class program 
 {
-    private static BankAccountSingleton bankAccountApp = new BankAccountSingleton(new BankAccountMemoryPersistency<AccountAdapter>(new Dictionary<int, AccountAdapter>()));
+    private static BankAccountSingleton bankAccountApp = new BankAccountSingleton(new BankAccountMemoryPersistency<AccountAdapter>(new Dictionary<int, AccountAdapter>(), new DiskPersistency<XmlParser<List<AccountAdapter>>,List<AccountAdapter>,string>(new XmlParser<List<AccountAdapter>>(Environment.CurrentDirectory))));
     
     private static string response;
 

@@ -37,9 +37,8 @@ namespace BankAccount.Persistency.Disk.Serializers.XmlParser
         public override async Task<String> serialize(TSource source) {
   
             XmlSerializer _serializer = new XmlSerializer(typeof(TSource));
-            var target = typeof(TSource) + ".xml";
-            target = target.Split('.')[target.Split('.').Length - 2].Replace("]", String.Empty);
-            target = target + ".xml";
+            var target = typeof(TSource).IsGenericType? await getFileNameFromType(typeof(TSource)) : typeof(TSource).Name + ".xml";
+   
             using (var _writer = new StreamWriter(target)){
 
                 _serializer.Serialize(_writer, source);
@@ -47,6 +46,16 @@ namespace BankAccount.Persistency.Disk.Serializers.XmlParser
 
                 return target;
             }
+        }
+
+        private async Task<String> getFileNameFromType(Type type)
+        {
+            if (type.GetGenericTypeDefinition() != typeof(List<>)) return type.Name + ".xml";
+            var fileName = type.GetGenericArguments()[0].Name + ".xml";
+            fileName = fileName.Split('.')[fileName.Split('.').Length - 2].Replace("]", String.Empty);
+            fileName += ".xml";
+            return fileName;
+
         }
     }
 }

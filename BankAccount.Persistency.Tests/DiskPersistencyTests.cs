@@ -18,7 +18,7 @@ namespace BankAccount.Persistency.Tests
         [TestInitialize]
         public void initialize()
         {
-            diskPersistency = new DiskPersistency<XmlParser<TestObject>, TestObject, string>(new XmlParser<TestObject>(Environment.CurrentDirectory));
+            diskPersistency = new DiskPersistency<XmlParser<TestObject>, TestObject, string>(new XmlParser<TestObject>(Environment.CurrentDirectory+"/"));
             o = new TestObject() { one = "one", two = 2 };
         }
 
