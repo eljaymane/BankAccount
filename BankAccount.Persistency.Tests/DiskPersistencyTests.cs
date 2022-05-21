@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BankAccount.Persistency.Tests
 {
@@ -22,17 +23,17 @@ namespace BankAccount.Persistency.Tests
         }
 
         [TestMethod]
-        public void persisting_object_to_disk_creates_file()
+        public async Task persisting_object_to_disk_creates_file()
         {
-            var path = this.diskPersistency.persistToDisk(o);
+            var path = await this.diskPersistency.persistToDisk(o);
             Assert.IsTrue(File.Exists(path));
         }
 
         [TestMethod]
-        public void reading_file_recreates_object()
+        public async Task reading_file_recreates_object()
         {
-            var path = this.diskPersistency.persistToDisk(o);
-            TestObject result = this.diskPersistency.getFromDisk(path);
+            var path = await this.diskPersistency.persistToDisk(o);
+            TestObject result = await this.diskPersistency.getFromDisk(path);
             Assert.AreEqual(result.one, o.one);
             Assert.AreEqual(result.two, o.two);
 

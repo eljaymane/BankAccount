@@ -1,4 +1,5 @@
 ﻿using BankAccount.Persistency.Adapters.Adapter;
+using BankAccount.Persistency.Disk;
 using BankAccount.Persistency.Disk.Core;
 using BankAccount.Persistency.Disk.Serializers.XmlParser;
 using BankAccount.Persistency.Memory.Exceptions;
@@ -9,11 +10,11 @@ using System.Text;
 
 namespace BankAccount.Persistency.Memory.Core
 {
-    public class MemoryPersistency<T, ID> : IPersistency<T, IDictionary<ID, T>, ID> 
+    public class MemoryPersistency<T, ID> : IPersistency<T, IDictionary<ID, T>, ID> , IDisposable
     {
-        public event EventHandler ObjectAdded;
+        public event EventHandler? ObjectAdded;
         private IDictionary<ID, T> objectsMap { get; set; }
-        private DiskPersistency<Parser<IDictionary<ID,T>,string>, IDictionary<ID,T>, string>? diskPersistency;
+        private IDiskPersistency<XmlParser<List<T>>, List<T>, string> diskPersistency;
 
         public MemoryPersistency(IDictionary<ID, T> objectsMap)
         {
@@ -21,16 +22,19 @@ namespace BankAccount.Persistency.Memory.Core
            
         }
 
-        public MemoryPersistency(IDictionary<ID, T> objectsMap, DiskPersistency<Parser<IDictionary<ID, T>, string>, IDictionary<ID, T>, string> diskPersistency)
+        public MemoryPersistency(IDictionary<ID, T> objectsMap, IDiskPersistency<XmlParser<List<T>>, List<T>, string> diskPersistency)
         {
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             this.diskPersistency = diskPersistency;
             this.objectsMap = objectsMap;
 
         }
+
+
         private void OnProcessExit(object sender, EventArgs e)
         {
-            this.diskPersistency.persistToDisk(this.objectsMap);
+
+            this.Dispose();
         }
 
         protected virtual void OnObjectAdded()
@@ -77,5 +81,10 @@ namespace BankAccount.Persistency.Memory.Core
             return objectsMap[id];
         }
 
+        public async void Dispose()
+        {
+            if (diskPersistency != null)  await this.diskPersistency.persistToDisk(this.objectsMap.Values.ToList());
+            this.objectsMap = new Dictionary<ID, T>();
+        }
     }
 }

@@ -11,8 +11,8 @@ namespace BankAccount.Persistency.Disk.Core
 
         public abstract Type AcceptsType { get; }
         public abstract Type ReturnsType { get; }
-        public abstract TSource deserialize(TTarget target);
-        public abstract TTarget serialize(TSource source);
+        public abstract Task<TSource> deserialize(TTarget target);
+        public abstract Task<TTarget> serialize(TSource source);
        
     }
 }

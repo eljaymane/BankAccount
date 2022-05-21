@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BankAccount.Persistency.Disk
 {
-    internal interface IDiskPersistency<TParser,TSource,TTarget> where TParser : ISerializer<TSource,TTarget>
+    public interface IDiskPersistency<TParser,TSource,TTarget> where TParser : ISerializer<TSource,TTarget>
     {
-        TTarget persistToDisk(TSource source);
-        TSource getFromDisk(TTarget path);
+        Task<TTarget> persistToDisk(TSource source);
+        Task<TSource> getFromDisk(TTarget path);
     }
 }

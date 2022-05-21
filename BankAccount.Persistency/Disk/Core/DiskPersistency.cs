@@ -19,14 +19,14 @@ namespace BankAccount.Persistency.Disk.Core
         }
 
 
-        public TTarget persistToDisk(TSource source)
+        public async Task<TTarget> persistToDisk(TSource source)
         {
-            return parser.serialize(source);
+            return await parser.serialize(source);
         }
 
-        public TSource getFromDisk(TTarget path)
+        public async Task<TSource> getFromDisk(TTarget path)
         {
-            return parser.deserialize(path);
+            return await parser.deserialize(path);
         }
     }
 }

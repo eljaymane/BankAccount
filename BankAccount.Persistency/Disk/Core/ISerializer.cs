@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BankAccount.Persistency.Disk.Core
 {
-    public interface ISerializer<TSource,TTarget>
+    public interface ISerializer<TSource,TTarget> 
     {
-        TTarget serialize(TSource soruce);
-        TSource deserialize(TTarget target);
+        Task<TTarget> serialize(TSource soruce);
+        Task<TSource> deserialize(TTarget target);
     }
 }

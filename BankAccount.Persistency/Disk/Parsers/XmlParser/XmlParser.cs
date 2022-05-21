@@ -9,8 +9,9 @@ using BankAccount.Persistency.Disk.Core;
 
 namespace BankAccount.Persistency.Disk.Serializers.XmlParser
 {
-    public class XmlParser<TSource> : Parser<TSource, string>
+    public class XmlParser<TSource> : Parser<TSource, String>
     {
+
         public XmlParser(string pathToDisk)
         {
             this.pathToDisk = pathToDisk;
@@ -22,28 +23,30 @@ namespace BankAccount.Persistency.Disk.Serializers.XmlParser
 
         public override Type ReturnsType => typeof(string);
 
-        public override TSource deserialize(String target)
+        public override async Task<TSource> deserialize(String target)
         {
             XmlSerializer s = new XmlSerializer(typeof(TSource));
-            using (var _reader = new FileStream(target, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (var _reader = new FileStream(target.ToString(), FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 TSource result = (TSource)s.Deserialize(_reader);
-                return result;
+            return result;
             }
             
 
         }
-        public override string serialize(TSource source)
-        {
+        public override async Task<String> serialize(TSource source) {
+  
             XmlSerializer _serializer = new XmlSerializer(typeof(TSource));
-            var target = pathToDisk + "/" + typeof(TSource) + ".xml";
+            var target = typeof(TSource) + ".xml";
+            target = target.Split('.')[target.Split('.').Length - 2].Replace("]", String.Empty);
+            target = target + ".xml";
             using (var _writer = new StreamWriter(target)){
+
                 _serializer.Serialize(_writer, source);
+                
+
                 return target;
             }
-            
-            
         }
-
     }
 }
