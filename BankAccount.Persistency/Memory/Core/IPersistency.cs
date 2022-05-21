@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccount.Persistency
+namespace BankAccount.Persistency.Memory.Core
 {
     public interface IPersistency<T1, T2, ID>
     {

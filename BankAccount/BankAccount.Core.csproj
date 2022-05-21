@@ -5,4 +5,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\Accounts\AccountOperations\Events\OperationDone\" />
+  </ItemGroup>
+
 </Project>

@@ -7,7 +7,7 @@ using BankAccount.Persistency.Memory.BankAccount;
 using System.Reflection;
 using System.Runtime.Remoting;
 
-public class program
+public class program 
 {
     private static BankAccountSingleton bankAccountApp = new BankAccountSingleton(new BankAccountMemoryPersistency<AccountAdapter>(new Dictionary<int, AccountAdapter>()));
     
