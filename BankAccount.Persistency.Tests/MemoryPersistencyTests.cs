@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BankAccount.Persistency.Disk;
-using BankAccount.Persistency.Adapters.Adapter;
 using BankAccount.Persistency.Memory.Exceptions;
 using BankAccount.Persistency.Memory.Core;
 using System.Collections.Generic;
@@ -10,6 +9,7 @@ using System;
 using Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces;
 using Moq;
 using System.IO;
+using BankAccount.Persistency.Adapters;
 
 namespace BankAccount.Persistency.Tests
 {

@@ -1,10 +1,4 @@
-﻿using BankAccount.Persistency.Adapters.Adapter;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BankAccount.Persistency.Memory.Core
 {
     public interface IPersistency<T1, T2, ID>

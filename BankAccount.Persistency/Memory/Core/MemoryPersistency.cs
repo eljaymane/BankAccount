@@ -1,4 +1,4 @@
-﻿using BankAccount.Persistency.Adapters.Adapter;
+﻿using BankAccount.Persistency.Adapters;
 using BankAccount.Persistency.Disk;
 using BankAccount.Persistency.Disk.Core;
 using BankAccount.Persistency.Disk.Serializers.XmlParser;
