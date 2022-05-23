@@ -68,6 +68,23 @@ namespace BankAccount.Persistency.Tests
             
         }
 
+        [TestMethod]
+        public void loading_file_from_disk_recreates_objectMap()
+        {
+            var path = Environment.CurrentDirectory + "/";
+            var diskPersistency = new DiskPersistency<XmlParser<List<ObjectAdapter>>, List<ObjectAdapter>, string>(new XmlParser<List<ObjectAdapter>>(path));
+            this.memory = new MemoryPersistency<ObjectAdapter, int>(new Dictionary<int, ObjectAdapter>(), diskPersistency);
+            var objectAdapter = new ObjectAdapter() { id = 1 };
+            using (this.memory)
+            {
+                this.memory.addObject(objectAdapter, objectAdapter.id);
+            }
+            var test = path + typeof(ObjectAdapter).Name + ".xml";
+            List<ObjectAdapter> result = this.memory.getDiskPersistency().getFromDisk(test).Result;
+            Assert.IsTrue(result.Count > 0);
+
+        }
+
 
     }
 }

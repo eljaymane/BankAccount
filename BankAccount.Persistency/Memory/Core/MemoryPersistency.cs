@@ -30,6 +30,11 @@ namespace BankAccount.Persistency.Memory.Core
 
         }
 
+        public IDiskPersistency<XmlParser<List<T>>, List<T>, string> getDiskPersistency()
+        {
+            return this.diskPersistency;
+        }
+
 
         private void OnProcessExit(object sender, EventArgs e)
         {

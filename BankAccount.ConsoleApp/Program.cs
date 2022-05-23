@@ -1,5 +1,6 @@
 ﻿using BankAccount.ConsoleApp.BankAccount.Adapters.MemoryPersistency;
 using BankAccount.ConsoleApp.BankAccount.Exceptions;
+using BankAccount.Core.Exceptions;
 using BankAccount.Core.Model.Accounts;
 using BankAccount.Core.Model.Operations;
 using BankAccount.Persistency;
@@ -24,6 +25,8 @@ public class program
             {
                 response =  writeActionsMessage();
             }
+            
+            
             await responseHandler(response, bankAccountApp);
         } while (!bankAccountApp.quit);
     }
@@ -41,6 +44,51 @@ public class program
         return Console.ReadLine().ToLower();
     }
 
+    async static Task<Object> createObjectByReflection(Type targetType)
+    {
+
+        dynamic _object = Activator.CreateInstance(targetType);
+        foreach (PropertyInfo prop in targetType.GetProperties())
+        {
+            bool isId = prop.Name.ToLower() == "id";
+            bool isDateTime = prop.PropertyType == (typeof(DateTime));
+            bool isList = prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
+            bool isPrimitiveType = prop.PropertyType.IsPrimitive || prop.PropertyType.IsValueType || prop.PropertyType == typeof(string);   
+
+            if (isId || isDateTime || isList) continue;
+            if (!isPrimitiveType)
+            {
+                _object.GetType().GetProperty(prop.Name).SetValue(_object, await createObjectByReflection(prop.PropertyType));
+            } 
+            else
+            {
+                Console.WriteLine(prop.Name + " ? : ");
+                var input = Console.ReadLine();
+                if (prop.PropertyType != typeof(string))
+                {
+                    if (prop.PropertyType == typeof(int))
+                    {
+                        _object.GetType().GetProperty(prop.Name).SetValue(_object, int.Parse(input));
+                    }
+                    if (prop.PropertyType == typeof(double))
+                    {
+                        _object.GetType().GetProperty(prop.Name).SetValue(_object, double.Parse(input.Replace(".", ",")));
+                    }
+
+                }
+                else
+                {
+                    _object.GetType().GetProperty(prop.Name).SetValue(_object, input);
+                }
+            }
+            
+
+        }
+
+        return _object;
+
+    }
+
     async static Task responseHandler(string response, BankAccountSingleton bankAccountApp)
     {
         switch (response)
@@ -49,8 +97,15 @@ public class program
                 bankAccountApp.quit = true;
                 break;
             case "create":
-                var account = await createAccount();
-                bankAccountApp.createBankAccount(account);
+                try
+                {
+                    bankAccountApp.createBankAccount((AccountAdapter)await createObjectByReflection(typeof(AccountAdapter)));
+                }catch(UsernameAlreadyInUseException e)
+                {
+                    Console.WriteLine(e.Message);
+                    break;
+                }
+                
                 break;
             case "login":
                 await login(bankAccountApp);
@@ -123,63 +178,9 @@ public class program
         app.login(username, password);
     }
 
-    async static Task<AccountAdapter> createAccount()
-    {
-        var userAccount = new AccountAdapter();
-        var account = new Account();
 
-
-        foreach (PropertyInfo prop in typeof(Account).GetProperties().Where(p => p.Name.ToLower() != "id" && p.Name.ToLower() != "operations" && p.PropertyType != typeof(DateTime)))
-        {
-            Console.WriteLine(prop.Name + " ? : ");
-            var input = Console.ReadLine();
-            if (prop.PropertyType != typeof(string))
-            {
-                if (prop.PropertyType == typeof(int))
-                {
-                    account.GetType().GetProperty(prop.Name).SetValue(account, int.Parse(input));
-                }
-                if (prop.PropertyType == typeof(double))
-                {
-                    account.GetType().GetProperty(prop.Name).SetValue(account, double.Parse(input.Replace(".",",")));
-                }
-
-            }
-            else
-            {
-                account.GetType().GetProperty(prop.Name).SetValue(account, input);
-            }
-
-        }
-
-
-        foreach (PropertyInfo prop in userAccount.GetType().GetProperties().Where(a => a.Name.ToLower() != "id" && a.Name.ToLower() != "account"))
-        {
-            Console.WriteLine(prop.Name + " ? : ");
-            var input = Console.ReadLine();
-            if (prop.PropertyType != typeof(string))
-            {
-                if (prop.PropertyType == typeof(int))
-                {
-                    userAccount.GetType().GetProperty(prop.Name).SetValue(userAccount, int.Parse(input));
-                }
-                if (prop.PropertyType == typeof(double))
-                {
-                    account.GetType().GetProperty(prop.Name).SetValue(userAccount, double.Parse(input.Replace(".", ",")));
-                }
-
-            }
-            else
-            {
-                userAccount.GetType().GetProperty(prop.Name).SetValue(userAccount, input);
-            }
-
-
-
-        }
-        userAccount.account = account;
-        return userAccount;
-    }
+   
+  
 
 
 }

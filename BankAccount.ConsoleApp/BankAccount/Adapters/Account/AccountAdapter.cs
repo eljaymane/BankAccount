@@ -8,5 +8,10 @@ namespace BankAccount.Persistency
         public string username { get; set; }
         public string password { get; set; }
         public Account account { get; set; }
+
+        public AccountAdapter() : base()
+        {
+
+        }
     }
 }

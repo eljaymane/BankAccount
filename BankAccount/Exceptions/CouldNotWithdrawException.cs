@@ -1,9 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace BankAccount.ConsoleApp.BankAccount.Exceptions
 {
     [Serializable]
-    internal class CouldNotWithdrawException : Exception
+    public class CouldNotWithdrawException : Exception
     {
         const string outOfBalanceMessage = "The amount your are trying to withdraw is greater than your balance.";
         public CouldNotWithdrawException()

@@ -2,6 +2,7 @@
 using BankAccount.ConsoleApp.BankAccount.Adapters.MemoryPersistency;
 using BankAccount.ConsoleApp.BankAccount.Exceptions;
 using BankAccount.Core;
+using BankAccount.Core.Exceptions;
 using BankAccount.Core.Model.Accounts;
 using BankAccount.Core.Model.Operations;
 using BankAccount.Core.Model.OperationsAction;
@@ -39,6 +40,7 @@ namespace BankAccount.Persistency.Memory.BankAccount
         public int createBankAccount(AccountAdapter account)
         {
             var id = index;
+            if (!(base.instance.getObjects().Values.Where(e => e.username == account.username).Count().Equals(0))) throw new UsernameAlreadyInUseException();
             return base.instance.addObject(account, id);
         }
         public AccountAdapter removeBankAccount(int id)

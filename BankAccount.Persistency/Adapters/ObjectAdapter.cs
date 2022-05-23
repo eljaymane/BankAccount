@@ -10,6 +10,9 @@ namespace BankAccount.Persistency.Adapters
     {
         public int id { get; set; }
 
+        public ObjectAdapter()
+        {
 
+        }
     }
 }

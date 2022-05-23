@@ -2,11 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
+    <LangVersion>8.0</LangVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\Accounts\AccountOperations\Events\OperationDone\" />
-  </ItemGroup>
 
 </Project>

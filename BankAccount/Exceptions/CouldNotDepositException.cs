@@ -1,9 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
-namespace BankAccount.ConsoleApp.BankAccount.Exceptions
+namespace BankAccount.Core.Exceptions
 {
     [Serializable]
-    internal class CouldNotDepositException : Exception
+    public class CouldNotDepositException : Exception
     {
         public CouldNotDepositException()
         {
