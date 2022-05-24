@@ -6,7 +6,6 @@ namespace BankAccount.Core.Model.Accounts
 {
     public class Account
     {
-        public uint id { get; set; }
         public string firstName { get; set; }
         public string lastname { get; set; }
         public double balance { get; set; }
